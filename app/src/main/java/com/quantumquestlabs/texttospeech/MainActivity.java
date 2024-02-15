@@ -2,6 +2,8 @@ package com.quantumquestlabs.texttospeech;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -69,16 +71,37 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if (editTextText.getText().toString().length()>0){
-                    editTextText.setText("");
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                        textToSpeech.speak("Writing is being erased ",TextToSpeech.QUEUE_FLUSH,null, null);
-                    }
-                }else {
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                        textToSpeech.speak("Nothing is written here",TextToSpeech.QUEUE_FLUSH,null, null);
-                    }
-                }
+
+
+                new AlertDialog.Builder(MainActivity.this)
+                        .setTitle("Are you sure ?")
+                        .setCancelable(false)
+                        .setPositiveButton("Yes ", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+
+                                if (editTextText.getText().toString().length()>0){
+                                    editTextText.setText("");
+                                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                                        textToSpeech.speak("Writing is being erased ",TextToSpeech.QUEUE_FLUSH,null, null);
+                                    }
+                                }else {
+                                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                                        textToSpeech.speak("Nothing is written here",TextToSpeech.QUEUE_FLUSH,null, null);
+                                    }
+                                }
+
+                            }
+                        })
+                        .setNegativeButton("Cancle", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+
+                            }
+                        })
+                        .show();
+
+
 
 
 
