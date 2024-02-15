@@ -75,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
 
                 new AlertDialog.Builder(MainActivity.this)
                         .setTitle("Are you sure ?")
+                        .setIcon(R.drawable.exit)
                         .setCancelable(false)
                         .setPositiveButton("Yes ", new DialogInterface.OnClickListener() {
                             @Override
@@ -113,6 +114,32 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+
+        //super.onBackPressed();
+        new AlertDialog.Builder(MainActivity.this)
+                .setTitle("Confirm Exit!!")
+                .setMessage("Do you want to exit ?")
+                .setIcon(R.drawable.exit)
+                .setPositiveButton("Yes exit!", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                            finishAndRemoveTask();
+                        }
+                    }
+                })
+                .setNegativeButton("No thanks", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                })
+                .show();
+
+    }
     //==============================
 
     private void transparentStatusbarAndNavigation() {
