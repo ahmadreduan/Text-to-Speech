@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#004953"
+        android:padding="25dp"
+        >
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/edit_text_background_style"
+            android:text="Please input your text "
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:textColor="@color/white"
+            />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:orientation="vertical"
+            android:background="@drawable/edit_text_background_style"
+            android:layout_marginTop="30dp"
+            >
+
+            <EditText
+                android:id="@+id/editTextText"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:inputType="textMultiLine"
+                android:hint="\t\t\t\tWrite here "
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textColorHint="#48000000"
+                android:layout_margin="5dp"
+                />
+
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/speech_button"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="center"
+            android:backgroundTint="#0d3238"
+            android:text="speech"
+            android:textSize="30dp"
+            android:textColor="@color/white"
+            android:layout_marginTop="80dp"
+            />
+
+        <Button
+            android:id="@+id/clear_button"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:text="Clear text"
+            android:textSize="25sp"
+            android:layout_gravity="center"
+            android:backgroundTint="#0d3238"
+            android:textColor="@color/white"
+            android:layout_marginTop="25dp"/>
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
